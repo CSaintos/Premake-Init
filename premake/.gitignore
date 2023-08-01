@@ -1,0 +1,10 @@
+# Ignore build dir
+build/
+# Ignore bin dir
+bin/
+# Ignore make dir
+make/
+# Ignore Premake binaries
+premake5
+premake5.exe
+libluasocket.so

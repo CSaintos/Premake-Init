@@ -1,0 +1,68 @@
+{
+  "premake lib": {
+    "scope": "lua",
+    "prefix": ["premakelib"],
+    "body": [
+      "function use$1Lib()",
+      "\tlibdirs {",
+      "\t\t(wGL..\"$2\")",
+      "\t}",
+      "\tlinks {",
+      "\t\t(\"$3\")",
+      "\t}",
+      "end"
+    ],
+    "description": "premake library"
+  },
+  "premake wks": {
+    "scope": "lua",
+    "prefix": ["premakewks"],
+    "body": [
+      "-- $TM_FILENAME",
+      "",
+      "require \"script/global\"",
+      "",
+      "workspace \"TM_FILENAME_BASE\"",
+      "\tconfigurations {\"Debug\", \"Release\"}",
+      "\tlocation (wML..\"/$TM_FILENAME_BASE\")",
+      "",
+      "\tfilter {\"configurations:Debug\"}",
+      "\t\tdefines {\"DEBUG\"}",
+      "\t\tsymbols \"On\"",
+      "",
+      "\tfilter {\"configurations:Release\"}",
+      "\t\tdefines {\"RELEASE\"}",
+      "\t\toptimize \"On\"",
+      "",
+      "\tfilter {}",
+      "$0",
+      "workspace \"$TM_FILENAME_BASE\""
+    ],
+    "description": "premake workspace"
+  },
+  "premake prj": {
+    "scope": "lua",
+    "prefix": ["premakeprj"],
+    "body": [
+      "-- $TM_FILENAME",
+      "",
+      "require \"script/global\"",
+      "",
+      "project \"$TM_FILENAME_BASE\"",
+      "\tkind \"$1\"",
+      "\tlanguage \"C++\"",
+      "\tinitPrjLocs()",
+      "",
+      "\tfiles {",
+      "\t\t(wGL..\"$2\")",
+      "\t}",
+      "",
+      "\tincludedirs {",
+      "\t\t(wGL..\"$3\")",
+      "\t}",
+      "$0",
+      "project \"$TM_FILENAME_BASE\""
+    ],
+    "description": "premake project"
+  }
+}
