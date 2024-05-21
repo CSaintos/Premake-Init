@@ -1,5 +1,4 @@
 # Premake-Init
----
 
 ## What is it?
 Premake-Init is my personal [Premake](https://github.com/premake/premake-core) build setup snippet for building C++ projects using premake and GNU make.
